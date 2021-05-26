@@ -6,8 +6,6 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    
-    // === THREE.JS CODE START ===
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -18,7 +16,7 @@ class App extends Component {
     const canvas = document.getElementById("canvas");
     const renderer = new THREE.WebGL1Renderer({
       antialias: true,
-      canvas: canvas
+      canvas: canvas,
     });
 
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -42,7 +40,6 @@ class App extends Component {
     // const gridHelper = new THREE.GridHelper(200, 50);
 
     // scene.add(lightHelper, gridHelper);
-
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -70,22 +67,18 @@ class App extends Component {
     scene.add(eli);
 
     const moveCamera = () => {
-      console.log('did that work');
-      
       const t = document.body.getBoundingClientRect().top;
-      
+
       eli.rotation.y += 0.1;
       eli.rotation.x += 0.1;
-      
+
       camera.position.z = t * -0.001;
       camera.position.x = t * -0.02;
       camera.rotation.y = t * -0.02;
-    }
-  
-    window.addEventListener('scroll', moveCamera);
-    moveCamera()
+    };
 
-
+    window.addEventListener("scroll", moveCamera);
+    moveCamera();
 
     const animate = function () {
       requestAnimationFrame(animate);
@@ -98,11 +91,9 @@ class App extends Component {
       renderer.render(scene, camera);
     };
     animate();
-    // === THREE.JS EXAMPLE CODE END ===
   }
 
   render() {
-    
     return (
       <div className="App">
         <header>
@@ -145,7 +136,6 @@ class App extends Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </section>
-
 
         <section>
           <h2>👩🏽‍🚀 Projects</h2>
