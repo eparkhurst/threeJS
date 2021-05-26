@@ -6,7 +6,6 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    console.log('run');
     
     // === THREE.JS CODE START ===
     const scene = new THREE.Scene();
@@ -75,10 +74,8 @@ class App extends Component {
       
       eli.rotation.y += 0.1;
       eli.rotation.x += 0.1;
-
-      console.log(camera.position);
       
-      camera.position.z = t * -0.01;
+      camera.position.z = t * -0.001;
       camera.position.x = t * -0.02;
       camera.rotation.y = t * -0.02;
     }
@@ -94,8 +91,6 @@ class App extends Component {
       torus.rotation.y += 0.005;
       torus.rotation.z += 0.01;
 
-      // eli.rotation.y += 0.01;
-      // eli.rotation.x += 0.01;
       controls.update();
 
       renderer.render(scene, camera);
@@ -109,7 +104,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>Jeff Delaney</h1>
+          <h1>Eli</h1>
           <p>🚀 Welcome to my website!</p>
         </header>
         <blockquote>
